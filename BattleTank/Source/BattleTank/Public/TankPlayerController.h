@@ -19,9 +19,20 @@ private:
 	virtual void BeginPlay() override;
 
 public:
+
+	UPROPERTY(EditAnywhere)
+	float CrosshairXLocation = 0.5f;
+	UPROPERTY(EditAnywhere)
+	float CrosshairYLocation = 0.33333f;
+
 	virtual void Tick(float) override;
 	ATank* GetControlledTank() const;
 
 	//Start the tank moving the barrel so that sa shot would it where the crosshair intersect the world.
 	void AimTowardsCrosshair();
+
+	//Return an OUT parameter, true if hit landscape.
+	bool GetSightRayHitLocation(FVector&) const;
+
+	bool GetLookDirection(FVector2D, FVector&) const;
 };
