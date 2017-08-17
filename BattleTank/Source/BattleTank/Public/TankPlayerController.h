@@ -25,6 +25,9 @@ public:
 	UPROPERTY(EditAnywhere)
 	float CrosshairYLocation = 0.33333f;
 
+	UPROPERTY(EditAnywhere)
+	float LineTraceRange = 1000000; //This is 10 km.
+
 	virtual void Tick(float) override;
 	ATank* GetControlledTank() const;
 
@@ -35,4 +38,6 @@ public:
 	bool GetSightRayHitLocation(FVector&) const;
 
 	bool GetLookDirection(FVector2D, FVector&) const;
+
+	bool GetLookVectorHitLocation(FVector, FVector&) const;
 };
