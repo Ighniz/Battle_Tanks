@@ -1,11 +1,12 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "TankBarrel.h"
+#include "Engine.h"
 
 
 
-
-void UTankBarrel::Elevate(float DegreesPerSecond)
+// -1 is max downward speed, and +1 is max up movement.
+void UTankBarrel::Elevate(float RelativeSpeed)
 {
-	UE_LOG(LogTemp, Warning, TEXT("Barrel-Elevate() called at speed %s"), *FString::SanitizeFloat(DegreesPerSecond));
+	//auto Time = GetWorld()->GetTimeSeconds();
 }
