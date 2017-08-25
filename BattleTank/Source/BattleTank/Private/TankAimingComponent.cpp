@@ -26,7 +26,7 @@ void UTankAimingComponent::MoveBarrelTowards(FVector AimDirection)
 	auto DeltaRotator = AimAsRotator - BarrelRotation;
 
 	//Move the barrel the right amount this frame.
-	Barrel->Elevate(5); //TODO remove magic number.
+	Barrel->Elevate(DeltaRotator.Pitch);
 
 	//Given a max elevation speed, and the frame time.
 }
@@ -44,6 +44,9 @@ void UTankAimingComponent::AimAt(FVector HitLocation, float TossSpeed)
 		StartLocation,
 		HitLocation,
 		TossSpeed,
+		false,
+		0,
+		0,
 		ESuggestProjVelocityTraceOption::DoNotTrace
 	);//Calculate The OutTossVelocity...
 
@@ -56,7 +59,7 @@ void UTankAimingComponent::AimAt(FVector HitLocation, float TossSpeed)
 	}
 	else
 	{
-		UE_LOG(LogTemp, Warning, TEXT("%f: No aim solve found."), Time);
+		UE_LOG(LogTemp, Warning, TEXT("%f: No aim solve found. OutTossVelocity: %s StartLocation: %s HitLocation: %s TossSpeed: %f"), Time, *OutTossVelocity.ToString(), *StartLocation.ToString(), *HitLocation.ToString(), TossSpeed);
 	}
 }
 
