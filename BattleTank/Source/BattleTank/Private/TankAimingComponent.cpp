@@ -58,16 +58,10 @@ void UTankAimingComponent::AimAt(FVector HitLocation, float TossSpeed)
 		ESuggestProjVelocityTraceOption::DoNotTrace
 	);//Calculate The OutTossVelocity...
 
-	auto Time = GetWorld()->GetTimeSeconds();
 	if (bHaveAimSolution)
 	{
 		auto AimDirection = OutTossVelocity.GetSafeNormal();
 		MoveBarrelTowards(AimDirection);
-		UE_LOG(LogTemp, Warning, TEXT("%f: Aim solution found."), Time);
-	}
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("%f: No aim solve found. OutTossVelocity: %s StartLocation: %s HitLocation: %s TossSpeed: %f"), Time, *OutTossVelocity.ToString(), *StartLocation.ToString(), *HitLocation.ToString(), TossSpeed);
 	}
 }
 
