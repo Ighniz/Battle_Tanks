@@ -7,6 +7,8 @@
 #include "GameFramework/Pawn.h"
 #include "Tank.generated.h" //Put new includes above.
 
+class AProjectile;
+
 UCLASS()
 class BATTLETANK_API ATank : public APawn
 {
@@ -38,4 +40,10 @@ protected:
 	
 	UPROPERTY(EditAnywhere, Category = Firing)
 	float LaunchSpeed = 4000; //Sensible starting value of 1000 meters/second.
+
+	UPROPERTY(EditAnywhere, Category = Setup)
+	TSubclassOf<AProjectile> ProjectileBlueprint; //Alternative https://docs.unrealengine.com/latest/INT/Programming/UnrealArchitecture/TSubclassOf/
+
+	// Local barrel reference for spawning projectile.
+	UTankBarrel* Barrel = nullptr;
 };
