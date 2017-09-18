@@ -16,6 +16,10 @@ class BATTLETANK_API ATankAIController : public AAIController
 	GENERATED_BODY()
 public:
 
-		virtual void Tick(float DeltaSeconds) override;
+	virtual void Tick(float DeltaSeconds) override;
 
+private:
+
+	// How close can the AI tank get.
+	float AcceptanceRadius = 3000;
 };
