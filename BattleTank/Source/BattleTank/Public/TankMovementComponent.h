@@ -23,7 +23,7 @@ class BATTLETANK_API UTankMovementComponent : public UNavMovementComponent
 	void IntendMoveForward(float Throw);
 	
 	UFUNCTION(BlueprintCallable, Category = Input)
-	void IntentTurnRight(float Throw);
+	void IntendTurnRight(float Throw);
 
 	// TODO Check best protection.
 	virtual void RequestDirectMove(const FVector& MoveVelocity, bool bForceMaxSpeed) override;
